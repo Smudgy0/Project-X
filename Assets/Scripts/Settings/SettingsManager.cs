@@ -41,7 +41,7 @@ public class SettingsManager : MonoBehaviour
         DifficultySelectedTextBox.text = Difficultys[DifficultySelected].DifficultyName + " - Lives: " + PlayerLives;
     }
 
-    public void OpenSettings()
+    public void OpenSettings() // Swaps main menu to the settings menu
     {
         MainMenuTrioButtons.SetActive(false);
         SettingsButtons.SetActive(true);
@@ -49,7 +49,7 @@ public class SettingsManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(ReturnToMenuButton);
     }
 
-    public void CloseSettings()
+    public void CloseSettings() // Swaps settings menu to the main menu
     {
         MainMenuTrioButtons.SetActive(true);
         SettingsButtons.SetActive(false);
