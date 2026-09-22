@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8808978591894889746}
   - component: {fileID: 1034849367752235981}
   - component: {fileID: 7271569110180558574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 382035408158619262}
   - component: {fileID: 5849849111340450683}
   - component: {fileID: 3471826295780716130}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,10 +137,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad7dd73f3cd91145ae039e4a1b5d05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMoveSpeed: 10
+  PlayerMoveSpeed: 4
   PlayerJumpHeight: 8
-  MovementDirection: {x: 0, y: 0}
   CanJump: 1
+  MovementDirection: {x: 0, y: 0}
+  ActiveCharater: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  backGroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &382035408158619262
 Rigidbody2D:
   serializedVersion: 5
@@ -156,7 +163,7 @@ Rigidbody2D:
   m_Mass: 3
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 9db38f69dc8e9674d8803036f81a0e65, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -167,7 +174,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5849849111340450683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,7 +209,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.25245664}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -212,7 +219,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.49508673}
   m_EdgeRadius: 0
 --- !u!114 &3471826295780716130
 MonoBehaviour:
@@ -326,7 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 741296434137567160}
   - component: {fileID: 6197782945271108071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,8 +396,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1424470445
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 137f5269f0de6e640aed61ea3e382748, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
