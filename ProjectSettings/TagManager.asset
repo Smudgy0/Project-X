@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ZombieAttack
   - Tele
+  - Enemy
   layers:
   - Default
   - TransparentFX

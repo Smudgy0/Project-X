@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector2 MovementDirection;
 
     // players rigidbody/colliders
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     // Mask
     public GameObject backGroundcollider;
