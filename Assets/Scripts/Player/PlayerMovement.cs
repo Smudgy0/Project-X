@@ -27,12 +27,31 @@ public class PlayerMovement : MonoBehaviour
 
     // player character values
     public CharacterInfo ActiveCharater;
+    public CharacterInfo[] PlayableCharacters;
+    public int CharacterSelected = 0;
 
     void Start()
     {
         myHeight = this.transform.position.y;
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+    }
+
+    public void OnSwapCharacter(InputAction.CallbackContext value)
+    {
+        if (value.performed)
+        {
+            if (CharacterSelected == PlayableCharacters.Length) { CharacterSelected = 0; }
+            ActiveCharater = PlayableCharacters[CharacterSelected];
+            GetCharStats(PlayableCharacters[CharacterSelected]);
+            CharacterSelected += 1;
+        }
+    }
+
+    public void GetCharStats(CharacterInfo CharInfo)
+    {
+        PlayerMoveSpeed = CharInfo.thisCharacterMoveSpeed;
+        PlayerJumpHeight = CharInfo.thisCharacterJumpSpeed;
     }
 
     public void OnMove(InputAction.CallbackContext value)

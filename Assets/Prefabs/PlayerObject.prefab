@@ -1,5 +1,93 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3885008485026705768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6027970424173913047}
+  - component: {fileID: 3344563848870284749}
+  - component: {fileID: 4789201739494459097}
+  m_Layer: 6
+  m_Name: EnemyChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6027970424173913047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885008485026705768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4728684060110804375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &3344563848870284749
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885008485026705768}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.1
+--- !u!114 &4789201739494459097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885008485026705768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9dbc90538bb4940b6e2d6eff1956a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcceptedTargets:
+    serializedVersion: 2
+    m_Bits: 256
+  EnemyTarget: {fileID: 0}
+  MyAttackPointChecker: {fileID: 3885008485026705768}
+  playerDamage: 0
+  PM: {fileID: 0}
 --- !u!1 &4293009177899164766
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4728684060110804375}
   - component: {fileID: 9001253878509269601}
+  - component: {fileID: 7562116639853369611}
   - component: {fileID: 3194897787776830273}
   - component: {fileID: 382035408158619262}
   - component: {fileID: 5849849111340450683}
@@ -36,6 +125,7 @@ Transform:
   m_Children:
   - {fileID: 741296434137567160}
   - {fileID: 796852865259960452}
+  - {fileID: 6027970424173913047}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9001253878509269601
@@ -54,11 +144,24 @@ MonoBehaviour:
   PlayerJumpHeight: 6
   playerJumpOffset: 0
   myHeight: 0
-  CanJump: 1
   isJumping: 0
   MovementDirection: {x: 0, y: 0}
+  rb: {fileID: 0}
   backGroundcollider: {fileID: 0}
   ActiveCharater: {fileID: 0}
+--- !u!114 &7562116639853369611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293009177899164766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e198904464195249ab8ab89d5a7b270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScore: 0
 --- !u!114 &3194897787776830273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +346,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d636b95b-1ba4-440b-86b7-46310ca3633f
     m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4789201739494459097}
+        m_TargetAssemblyTypeName: AttackChecker, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f9bfca59-97b1-4f69-a65d-863519541265
+    m_ActionName: 'Player/Attack[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
