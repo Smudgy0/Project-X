@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyType: {fileID: 0}
+  MyHealth: 0
 --- !u!114 &3789085175753116128
 MonoBehaviour:
   m_ObjectHideFlags: 0
