@@ -8,6 +8,9 @@ TagManager:
   - Tele
   - Enemy
   - Collect
+  - Ground
+  - Water
+  - Death
   layers:
   - Default
   - TransparentFX

@@ -5,9 +5,12 @@ public class PlayerHealthScript : MonoBehaviour
     public int maxPlayerhealth = 6;
     public int playerhealth;
 
+    public PlayerMovement PM;
+
     private void Awake()
     {
         playerhealth = maxPlayerhealth;
+        PM = FindAnyObjectByType<PlayerMovement>();
     }
 
     private void FixedUpdate()
@@ -26,6 +29,10 @@ public class PlayerHealthScript : MonoBehaviour
         {
             Debug.Log("collided with enemy attack box");
             TakeDamage(collision.gameObject.GetComponent<EnemyDamageScript>().damage);
+        }
+        if (collision.tag == "Death")
+        {
+            TakeDamage(playerhealth);
         }
     }
 
