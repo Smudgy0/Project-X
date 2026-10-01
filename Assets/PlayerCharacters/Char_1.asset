@@ -15,4 +15,4 @@ MonoBehaviour:
   thisCharacterName: 
   thisCharacterMoveSpeed: 4
   thisCharacterJumpSpeed: 8
-  AttackForm: 0
+  AttackForm: 1

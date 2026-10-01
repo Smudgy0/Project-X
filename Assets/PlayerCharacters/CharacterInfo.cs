@@ -6,12 +6,12 @@ public class CharacterInfo : ScriptableObject
     public int thisCharacterMoveSpeed;
     public int thisCharacterJumpSpeed;
 
-    private enum AttackType
+    public enum AttackType
     {
         Unknown,
         Melee,
         Ranged,
     }
 
-    [SerializeField] private AttackType AttackForm = AttackType.Unknown;
+    public AttackType AttackForm = AttackType.Unknown;
 }

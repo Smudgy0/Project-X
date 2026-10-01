@@ -3,13 +3,16 @@ using UnityEngine.InputSystem;
 
 public class AttackChecker : MonoBehaviour
 {
-    public LayerMask AcceptedTargets;
-    public EnemyHealth EnemyTarget;
-    public GameObject MyAttackPointChecker;
+    
 
     public int playerDamage;
 
     public PlayerMovement PM;
+
+    public Transform meleePoint;
+    public LayerMask acceptedTargets;
+    public Transform shootingPoint;
+    public GameObject bulletPrefab;
 
     private void Awake()
     {
@@ -17,40 +20,29 @@ public class AttackChecker : MonoBehaviour
         PM = FindAnyObjectByType<PlayerMovement>();
     }
 
-    private void Update()
+    public void OnAttack(InputAction.CallbackContext context)
     {
-        if(PM.rb.linearVelocityX > 0)
+        if (context.performed)
         {
-            MyAttackPointChecker.transform.localPosition = new Vector2(1,0);
-        }
-        else
-        {
-            MyAttackPointChecker.transform.localPosition = new Vector2(-1, 0);
+            switch(PM.ActiveCharater.AttackForm)
+            {
+                case CharacterInfo.AttackType.Melee:
+                    Collider2D hit = Physics2D.OverlapCircle(meleePoint.position, 0.5f, acceptedTargets);
+                    if(hit != null)
+                    {
+                        if(hit.TryGetComponent(out EnemyHealth enemyHealth))
+                        {
+                            enemyHealth.TakeDamage(playerDamage);
+                        }
+                    }
+
+                    break;
+                case CharacterInfo.AttackType.Ranged:
+                    GameObject bulletClone = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
+                    Destroy(bulletClone, 1f);
+                    break;
+            }
         }
     }
 
-    public void OnAttack(InputAction.CallbackContext value)
-    {
-        if(EnemyTarget == null) { return; }
-        if (value.performed)
-        {
-            EnemyTarget.TakeDamage(playerDamage);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Enemy")
-        {
-            EnemyTarget = collision.GetComponent<EnemyHealth>();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-        {
-            EnemyTarget = null;
-        }
-    }
 }
