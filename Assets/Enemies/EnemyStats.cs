@@ -3,4 +3,9 @@ using UnityEngine;
 public class EnemyStats : ScriptableObject
 {
     public int health;
+
+    public Color MyColor;
+    public bool RandomStats;
+
+    public int Speed;
 }
