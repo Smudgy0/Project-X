@@ -30,11 +30,19 @@ public class PlayerMovement : MonoBehaviour
     public CharacterInfo[] PlayableCharacters;
     public int CharacterSelected = 0;
 
+    // GroundChecker
+    public float groundCheckRadius;
+    public Transform groundCheckObject;
+    public LayerMask groundMask;
+    public Collider2D isGrounded;
     void Start()
     {
         myHeight = this.transform.position.y;
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+
+        PlayerMoveSpeed = PlayableCharacters[CharacterSelected].thisCharacterMoveSpeed;
+        PlayerJumpHeight = PlayableCharacters[CharacterSelected].thisCharacterJumpSpeed;
     }
 
     public void OnSwapCharacter(InputAction.CallbackContext value)
@@ -63,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (value.performed)
         {
-            if (isJumping == true) { return; }
+            if (isJumping == true || isGrounded == false) { return; }
 
             // setjumping to true and enable gravity
             isJumping = true;
@@ -87,18 +95,41 @@ public class PlayerMovement : MonoBehaviour
         playerJumpOffset = 0.1f;
     }
 
+    private void Update()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheckObject.position, groundCheckRadius, groundMask);
+    }
+
     private void FixedUpdate()
     {
         if (!isJumping)
         {
-            rb.linearVelocity = MovementDirection * PlayerMoveSpeed;
+
+            if(isGrounded == false)
+            {
+                rb.gravityScale = 1;
+                return;
+            }
+            else
+            {
+                rb.gravityScale = 0;
+                rb.linearVelocity = MovementDirection * PlayerMoveSpeed;
+                return;
+            }
         }
 
         if (isJumping)
         {
+            rb.linearVelocityX = MovementDirection.x * PlayerMoveSpeed;
             if (this.transform.position.y < myHeight + playerJumpOffset || rb.linearVelocityY == 0)
             {
-
+                if(isGrounded == false)
+                {
+                    return;
+                }
+                /*if(when getting to the original landing height, the collider isn't hit on the ground)
+                 * use physics to make the player start falling until their collider hits the ground again
+                */
                 // Make player layer and background be able to interact
                 Physics2D.IgnoreLayerCollision(6, 7, false);
                 print($"{Physics2D.GetIgnoreLayerCollision(6, 7)} 6 & 7 Should be able to interact");
@@ -119,5 +150,10 @@ public class PlayerMovement : MonoBehaviour
             Teleporter teleporter = collision.GetComponent<Teleporter>(); 
             this.gameObject.transform.position = teleporter.SendPlayerTo.position + (Vector3)teleporter.Offset;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(groundCheckObject.position, groundCheckRadius);
     }
 }
