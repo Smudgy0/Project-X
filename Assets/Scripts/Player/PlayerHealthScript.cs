@@ -6,19 +6,32 @@ public class PlayerHealthScript : MonoBehaviour
     public int playerhealth;
 
     public PlayerMovement PM;
+    public GameUIManager GUIM;
+
+    public int MaxPlayerLives;
+    public int PLives;
+
+    public bool IsDead;
+
+    public Transform RespawnPoint;
 
     private void Awake()
     {
+        IsDead = false;
+        MaxPlayerLives = SettingsManager.PlayerLives;
+        PLives = MaxPlayerLives;
+
         playerhealth = maxPlayerhealth;
+        GUIM = FindAnyObjectByType<GameUIManager>();
         PM = FindAnyObjectByType<PlayerMovement>();
     }
 
     private void FixedUpdate()
     {
-        if (playerhealth <= 0)
+        if (playerhealth <= 0 && !IsDead)
         {
-            Destroy(this.gameObject);
-            // later on add a continue screen
+            IsDead = true;
+            DeathScreen();
         }
     }
 
@@ -39,5 +52,10 @@ public class PlayerHealthScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         playerhealth -= damage;
+    }
+
+    public void DeathScreen()
+    {
+        GUIM.OpenDeathScreenUi();
     }
 }

@@ -9,7 +9,7 @@ using System.Collections;
 public class SettingsManager : MonoBehaviour
 {
     // Stored Values
-    static int PlayerLives = 1;
+    public static int PlayerLives = 1;
 
     public int DifficultySelected = 0;
 
