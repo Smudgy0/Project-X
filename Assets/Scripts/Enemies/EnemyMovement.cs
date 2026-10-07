@@ -79,25 +79,21 @@ public class EnemyMovement : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (this.transform.position.x == TargetWayPoint.transform.position.x)
+        if (this.transform.position.x < TargetWayPoint.transform.position.x) // first patrol point MUST be the lowest X value
         {
-            Flip();
-            if (CurrentWayPoint == WayPoints.Length)
-            {
-                CurrentWayPoint = 0;
-            }
-            else
-            {
-                CurrentWayPoint++;
-            }
-
-            CurrentWayPoint = Math.Clamp(CurrentWayPoint, 0, 1);
+            TargetWayPoint = WayPoints[1];
+            Flip(1);
+        }
+        else // second patrol point MUST be the highest X value
+        {
+            TargetWayPoint = WayPoints[0];
+            Flip(-1);
         }
     }
 
-    public void Flip()
+    public void Flip(int moveDirection)
     {
-        zombieMoveDirection = -zombieMoveDirection;
+        zombieMoveDirection = moveDirection;
     }
 
     public void TakeDamage(int damage)

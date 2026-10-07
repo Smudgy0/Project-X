@@ -13,5 +13,18 @@ public class CharacterInfo : ScriptableObject
         Ranged,
     }
 
+    public enum AbilityOneType
+    {
+        Unknown,
+    }
+
+    public enum AbilityTwoType
+    {
+        Unknown,
+        Glide,
+    }
+
     public AttackType AttackForm = AttackType.Unknown;
+    public AbilityOneType AbilityOne = AbilityOneType.Unknown;
+    public AbilityTwoType AbilityTwo = AbilityTwoType.Unknown;
 }
