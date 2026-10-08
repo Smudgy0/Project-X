@@ -49,12 +49,14 @@ public class PlayerHealthScript : MonoBehaviour
         }
         if (collision.tag == "Death")
         {
+            Debug.Log("HitDeathBarrier");
             TakeDamage(playerhealth);
         }
     }
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("TookDamage");
         playerhealth -= damage;
     }
 
