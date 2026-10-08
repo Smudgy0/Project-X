@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4ec098b6afa4e489cf2b313edb7118, type: 3}
   m_Name: Char_1
   m_EditorClassIdentifier: 
-  thisCharacterName: 
+  thisCharacterName: M
   thisCharacterMoveSpeed: 4
   thisCharacterJumpSpeed: 8
   AttackForm: 1
+  AbilityOne: 0
+  AbilityTwo: 0
+  MyIcon: {fileID: 21300000, guid: bec008c1e4c422848bfd0b0e34c2853c, type: 3}

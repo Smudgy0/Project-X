@@ -27,4 +27,5 @@ public class CharacterInfo : ScriptableObject
     public AttackType AttackForm = AttackType.Unknown;
     public AbilityOneType AbilityOne = AbilityOneType.Unknown;
     public AbilityTwoType AbilityTwo = AbilityTwoType.Unknown;
+    public Sprite MyIcon;
 }

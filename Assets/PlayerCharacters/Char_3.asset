@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef4ec098b6afa4e489cf2b313edb7118, type: 3}
-  m_Name: Char_2
+  m_Name: Char_3
   m_EditorClassIdentifier: 
-  thisCharacterName: F
-  thisCharacterMoveSpeed: 8
-  thisCharacterJumpSpeed: 7
-  AttackForm: 2
+  thisCharacterName: C
+  thisCharacterMoveSpeed: 10
+  thisCharacterJumpSpeed: 6
+  AttackForm: 1
   AbilityOne: 0
   AbilityTwo: 0
-  MyIcon: {fileID: 21300000, guid: b85986bafc4631a439e139944adfcb01, type: 3}
+  MyIcon: {fileID: 21300000, guid: 8213c4a8e579e0445b802c7c81a7d8a3, type: 3}

@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameUIManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameUIManager : MonoBehaviour
 
     public TMP_Text PLivesText;
 
+    public Image CharIcon;
     private void Awake()
     {
         PHS = FindAnyObjectByType<PlayerHealthScript>();
@@ -72,5 +74,10 @@ public class GameUIManager : MonoBehaviour
         {
             Continue();
         }
+    }
+
+    public void ChangeIcon(Sprite InputIcon)
+    {
+        CharIcon.sprite = InputIcon;
     }
 }
