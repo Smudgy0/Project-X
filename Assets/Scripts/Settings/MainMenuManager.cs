@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGameManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] int selectedLevel = 1;
     
