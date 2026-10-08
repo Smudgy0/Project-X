@@ -33,6 +33,10 @@ public class PlayerHealthScript : MonoBehaviour
             IsDead = true;
             DeathScreen();
         }
+        else if (playerhealth > 0)
+        {
+            IsDead = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

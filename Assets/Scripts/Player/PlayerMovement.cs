@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Toggle Variables
     public bool isJumping;
+    public bool isDead;
 
 
     // player movement direction
@@ -43,10 +44,13 @@ public class PlayerMovement : MonoBehaviour
 
         PlayerMoveSpeed = PlayableCharacters[CharacterSelected].thisCharacterMoveSpeed;
         PlayerJumpHeight = PlayableCharacters[CharacterSelected].thisCharacterJumpSpeed;
+
+        isDead = false;
     }
 
     public void OnSwapCharacter(InputAction.CallbackContext value)
     {
+        if (isDead == true) { return; }
         if (value.performed)
         {
             if (CharacterSelected == PlayableCharacters.Length) { CharacterSelected = 0; }
@@ -64,11 +68,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext value)
     {
+        if (isDead == true) { return; }
         MovementDirection = value.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext value)
     {
+        if (isDead == true) { return; }
         if (value.performed)
         {
             if (isJumping == true || isGrounded == false) { return; }
@@ -97,11 +103,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (isDead == true) { return; }
         isGrounded = Physics2D.OverlapCircle(groundCheckObject.position, groundCheckRadius, groundMask);
     }
 
     private void FixedUpdate()
     {
+        if (isDead == true) { return; }
         if (!isJumping)
         {
 
@@ -148,7 +156,8 @@ public class PlayerMovement : MonoBehaviour
         if(collision.tag == "Tele")
         {
             Teleporter teleporter = collision.GetComponent<Teleporter>(); 
-            this.gameObject.transform.position = teleporter.SendPlayerTo.position + (Vector3)teleporter.Offset;
+            this.gameObject.transform.position = teleporter.SendPlayerTo.position;
+            teleporter.SwitchCameraView(this.gameObject.transform);
         }
     }
 

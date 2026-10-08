@@ -24,11 +24,46 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053932717509641148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.485, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 5163997719243196144}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1727806012307477894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5163997719243196144}
+  m_Layer: 6
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5163997719243196144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727806012307477894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 741296434137567160}
+  - {fileID: 796852865259960452}
+  - {fileID: 6027970424173913047}
+  - {fileID: 3796984389306570808}
   m_Father: {fileID: 4728684060110804375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3885008485026705768
@@ -57,12 +92,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3885008485026705768}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4728684060110804375}
+  m_Father: {fileID: 5163997719243196144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &3344563848870284749
 CircleCollider2D:
@@ -112,13 +147,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9dbc90538bb4940b6e2d6eff1956a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AcceptedTargets:
-    serializedVersion: 2
-    m_Bits: 256
-  EnemyTarget: {fileID: 0}
-  MyAttackPointChecker: {fileID: 3885008485026705768}
   playerDamage: 0
   PM: {fileID: 0}
+  meleePoint: {fileID: 0}
+  acceptedTargets:
+    serializedVersion: 2
+    m_Bits: 0
+  shootingPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
 --- !u!1 &4293009177899164766
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,10 +190,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 741296434137567160}
-  - {fileID: 796852865259960452}
-  - {fileID: 6027970424173913047}
-  - {fileID: 3796984389306570808}
+  - {fileID: 5163997719243196144}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9001253878509269601
@@ -219,6 +252,11 @@ MonoBehaviour:
   maxPlayerhealth: 6
   playerhealth: 0
   PM: {fileID: 0}
+  GUIM: {fileID: 0}
+  MaxPlayerLives: 0
+  PLives: 0
+  IsDead: 0
+  RespawnPoint: {fileID: 0}
 --- !u!50 &382035408158619262
 Rigidbody2D:
   serializedVersion: 5
@@ -421,6 +459,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6afa31a7-06ea-4666-9c71-443c39df9f11
     m_ActionName: 'Player/SwitchCharacter[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c169bee3-be2d-4668-925d-46627ee76360
+    m_ActionName: 'Player/Continue[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -456,7 +498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4728684060110804375}
+  m_Father: {fileID: 5163997719243196144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6197782945271108071
 SpriteRenderer:
@@ -538,12 +580,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9086496196530055396}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4728684060110804375}
+  m_Father: {fileID: 5163997719243196144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3997262098197968176
 BoxCollider2D:

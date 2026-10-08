@@ -59,41 +59,67 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ground checks and movement.
+
         isGroundedLeft = Physics2D.OverlapCircle(groundCheckObjectLeft.position, groundCheckRadius, groundMask);
         isGroundedRight = Physics2D.OverlapCircle(groundCheckObjectRight.position, groundCheckRadius, groundMask);
 
-        if (!isGroundedLeft)
-        {
-            zombieMoveDirection = 1;
-        }
-        else if (!isGroundedRight)
-        {
-            zombieMoveDirection = -1;
-        }
-
         rb.linearVelocityY = 0;
         rb.linearVelocityX = zombieMoveDirection * zombieMoveSpeed;
+
+        // if dead, die.
 
         if (MyHealth <= 0)
         {
             Destroy(this.gameObject);
         }
 
-        if (this.transform.position.x < TargetWayPoint.transform.position.x) // first patrol point MUST be the lowest X value
+        // if the enemy reaches the edge of a platform, change enemies direction and patrol point (failsafe).
+
+        if (!isGroundedLeft)
         {
             TargetWayPoint = WayPoints[1];
             Flip(1);
         }
-        else // second patrol point MUST be the highest X value
+        else if (!isGroundedRight)
         {
             TargetWayPoint = WayPoints[0];
             Flip(-1);
+        }
+
+        // once the enemy has reach the X value of the patrol point transport, flip the movement direction of the enemy and set its waypoint to the 2nd waypoint.
+
+        if (this.transform.position.x < TargetWayPoint.transform.position.x && zombieMoveDirection != 1) // first patrol point MUST be the lowest X value
+        {
+            TargetWayPoint = WayPoints[1];
+            Flip(1);
+        }
+        else if(this.transform.position.x > TargetWayPoint.transform.position.x && zombieMoveDirection != -1) // second patrol point MUST be the highest X value
+        {
+            TargetWayPoint = WayPoints[0];
+            Flip(-1);
+        }
+
+        // flip the attack box to be on the side the enemy is moving
+
+        if(rb.linearVelocityX > 0 && myAttackBox.transform.localPosition.x < 0)
+        {
+            FlipAttackBox();
+        }
+        else if(rb.linearVelocityX < 0 && myAttackBox.transform.localPosition.x > 0)
+        {
+            FlipAttackBox();
         }
     }
 
     public void Flip(int moveDirection)
     {
         zombieMoveDirection = moveDirection;
+    }
+
+    public void FlipAttackBox()
+    {
+        myAttackBox.transform.localPosition = -myAttackBox.transform.localPosition;
     }
 
     public void TakeDamage(int damage)
