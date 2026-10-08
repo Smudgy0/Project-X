@@ -20,6 +20,18 @@ public class AttackChecker : MonoBehaviour
         PM = FindAnyObjectByType<PlayerMovement>();
     }
 
+    public void Update()
+    {
+        if(PM.facingDirection.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.performed)

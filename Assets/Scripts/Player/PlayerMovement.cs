@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     // player movement direction
     [SerializeField] private Vector2 MovementDirection;
+    public Vector2 facingDirection;
 
     // players rigidbody/colliders
     public Rigidbody2D rb;
@@ -68,8 +69,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext value)
     {
-        if (isDead == true) { return; }
+        if (isDead == true) { return;}
         MovementDirection = value.ReadValue<Vector2>();
+        if (MovementDirection != Vector2.zero)
+        {
+            facingDirection = MovementDirection;
+        }
     }
 
     public void OnJump(InputAction.CallbackContext value)
