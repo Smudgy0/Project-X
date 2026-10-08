@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     // player movement values
     public float PlayerMoveSpeed;
@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping;
     public bool isDead;
 
+    // Player Sprite
+    public SpriteRenderer PlayerSprite;
 
     // player movement direction
     [SerializeField] private Vector2 MovementDirection;
@@ -37,6 +39,14 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheckObject;
     public LayerMask groundMask;
     public Collider2D isGrounded;
+
+    // Managers Access
+    public GameUIManager GUIM;
+
+    private void Awake()
+    {
+        GUIM = FindAnyObjectByType<GameUIManager>();
+    }
     void Start()
     {
         myHeight = this.transform.position.y;
@@ -110,6 +120,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead == true) { return; }
         isGrounded = Physics2D.OverlapCircle(groundCheckObject.position, groundCheckRadius, groundMask);
+
+        GUIM.ChangeCharacterUI(ActiveCharater);
+        PlayerSprite.sprite = ActiveCharater.MyIcon;
+        this.transform.localScale = new Vector3(ActiveCharater.thisCharSize.x, ActiveCharater.thisCharSize.y,0);
     }
 
     private void FixedUpdate()

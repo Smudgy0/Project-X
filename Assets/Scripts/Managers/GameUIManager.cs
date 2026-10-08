@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameUIManager : MonoBehaviour
 {
     public PlayerHealthScript PHS;
-    public PlayerMovement PM;
+    public PlayerManager PM;
 
     public GameObject ContinueScreen;
 
@@ -16,11 +16,12 @@ public class GameUIManager : MonoBehaviour
 
     public TMP_Text PLivesText;
 
+    public TMP_Text NameText;
     public Image CharIcon;
     private void Awake()
     {
         PHS = FindAnyObjectByType<PlayerHealthScript>();
-        PM = FindAnyObjectByType<PlayerMovement>();
+        PM = FindAnyObjectByType<PlayerManager>();
     }
 
     public void Countdown()
@@ -76,8 +77,9 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    public void ChangeIcon(Sprite InputIcon)
+    public void ChangeCharacterUI(CharacterInfo ReloadCharValue)
     {
-        CharIcon.sprite = InputIcon;
+        CharIcon.sprite = ReloadCharValue.MyIcon;
+        NameText.text = ReloadCharValue.thisCharacterName;
     }
 }

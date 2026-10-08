@@ -59,14 +59,6 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ground checks and movement.
-
-        isGroundedLeft = Physics2D.OverlapCircle(groundCheckObjectLeft.position, groundCheckRadius, groundMask);
-        isGroundedRight = Physics2D.OverlapCircle(groundCheckObjectRight.position, groundCheckRadius, groundMask);
-
-        rb.linearVelocityY = 0;
-        rb.linearVelocityX = zombieMoveDirection * zombieMoveSpeed;
-
         // if dead, die.
 
         if (MyHealth <= 0)
@@ -110,6 +102,17 @@ public class EnemyMovement : MonoBehaviour
         {
             FlipAttackBox();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        // ground checks and movement.
+
+        isGroundedLeft = Physics2D.OverlapCircle(groundCheckObjectLeft.position, groundCheckRadius, groundMask);
+        isGroundedRight = Physics2D.OverlapCircle(groundCheckObjectRight.position, groundCheckRadius, groundMask);
+
+        rb.linearVelocityY = 0;
+        rb.linearVelocityX = zombieMoveDirection * zombieMoveSpeed;
     }
 
     public void Flip(int moveDirection)

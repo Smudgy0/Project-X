@@ -6,6 +6,8 @@ public class CharacterInfo : ScriptableObject
     public int thisCharacterMoveSpeed;
     public int thisCharacterJumpSpeed;
 
+    public Vector2 thisCharSize;
+
     public enum AttackType
     {
         Unknown,

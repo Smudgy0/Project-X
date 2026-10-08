@@ -15,6 +15,7 @@ MonoBehaviour:
   thisCharacterName: C
   thisCharacterMoveSpeed: 10
   thisCharacterJumpSpeed: 6
+  thisCharSize: {x: 1, y: 0.7}
   AttackForm: 1
   AbilityOne: 0
   AbilityTwo: 0

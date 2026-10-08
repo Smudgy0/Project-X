@@ -154,13 +154,16 @@ MonoBehaviour:
   myHeight: 0
   isJumping: 0
   isDead: 0
+  PlayerSprite: {fileID: 6766416584268732628}
   MovementDirection: {x: 0, y: 0}
+  facingDirection: {x: 0, y: 0}
   rb: {fileID: 0}
   backGroundcollider: {fileID: 0}
   ActiveCharater: {fileID: 11400000, guid: 1e9cf9b28b77bf24ba71feccf63b01fb, type: 2}
   PlayableCharacters:
   - {fileID: 11400000, guid: 1e9cf9b28b77bf24ba71feccf63b01fb, type: 2}
   - {fileID: 11400000, guid: 7e0ac4aea40a8924b8e3ebc304e80d4d, type: 2}
+  - {fileID: 11400000, guid: c7932407b919a1a48b3adf4ddaab59c4, type: 2}
   CharacterSelected: 1
   groundCheckRadius: 0.01
   groundCheckObject: {fileID: 1658255337197092485}
@@ -168,6 +171,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isGrounded: {fileID: 0}
+  GUIM: {fileID: 0}
 --- !u!114 &7986306265669205844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +213,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3024388085366654948}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -404,7 +408,19 @@ MonoBehaviour:
     m_ActionId: 6afa31a7-06ea-4666-9c71-443c39df9f11
     m_ActionName: 'Player/SwitchCharacter[/Keyboard/q]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameUIManager, Assembly-CSharp
+        m_MethodName: OnContinue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c169bee3-be2d-4668-925d-46627ee76360
     m_ActionName: 'Player/Continue[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0

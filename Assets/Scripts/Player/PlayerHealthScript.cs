@@ -5,7 +5,7 @@ public class PlayerHealthScript : MonoBehaviour
     public int maxPlayerhealth = 6;
     public int playerhealth;
 
-    public PlayerMovement PM;
+    public PlayerManager PM;
     public GameUIManager GUIM;
 
     public int MaxPlayerLives;
@@ -23,7 +23,7 @@ public class PlayerHealthScript : MonoBehaviour
 
         playerhealth = maxPlayerhealth;
         GUIM = FindAnyObjectByType<GameUIManager>();
-        PM = FindAnyObjectByType<PlayerMovement>();
+        PM = FindAnyObjectByType<PlayerManager>();
     }
 
     private void FixedUpdate()

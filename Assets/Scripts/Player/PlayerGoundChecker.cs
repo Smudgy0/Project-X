@@ -10,11 +10,11 @@ public class PlayerGoundChecker : MonoBehaviour
     public LayerMask groundMask;  
     public Collider2D isGrounded;
 
-    public PlayerMovement PM;
+    public PlayerManager PM;
 
     private void Awake()
     {
-        PM = GetComponent<PlayerMovement>();
+        PM = GetComponent<PlayerManager>();
     }
 
     private void Update()

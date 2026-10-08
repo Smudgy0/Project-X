@@ -7,7 +7,7 @@ public class AttackChecker : MonoBehaviour
 
     public int playerDamage;
 
-    public PlayerMovement PM;
+    public PlayerManager PM;
 
     public Transform meleePoint;
     public LayerMask acceptedTargets;
@@ -17,7 +17,7 @@ public class AttackChecker : MonoBehaviour
     private void Awake()
     {
         playerDamage = 1;
-        PM = FindAnyObjectByType<PlayerMovement>();
+        PM = FindAnyObjectByType<PlayerManager>();
     }
 
     public void Update()
