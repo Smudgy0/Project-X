@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3789085175753116128}
   m_Layer: 8
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,6 +156,9 @@ MonoBehaviour:
   isGroundedRight: {fileID: 0}
   groundCheckObjectLeft: {fileID: 7750486917199531155}
   groundCheckObjectRight: {fileID: 5713783362853287576}
+  WayPoints: []
+  TargetWayPoint: {fileID: 0}
+  CurrentWayPoint: 0
 --- !u!1 &3320218179489264533
 GameObject:
   m_ObjectHideFlags: 0

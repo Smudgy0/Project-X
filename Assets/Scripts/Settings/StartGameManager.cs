@@ -5,8 +5,13 @@ public class StartGameManager : MonoBehaviour
 {
     [SerializeField] int selectedLevel = 1;
     
-    public void loadGame()
+    public void LoadGame()
     {
         SceneManager.LoadScene(selectedLevel);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
