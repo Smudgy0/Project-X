@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -42,6 +43,13 @@ public class PlayerManager : MonoBehaviour
 
     // Managers Access
     public GameUIManager GUIM;
+
+    // Camera
+
+    public CinemachineConfiner2D Confiner;
+    public Collider2D RespawnCameraContainer;
+    public CinemachineCamera Camera;
+
 
     public int currentPoints;
 
