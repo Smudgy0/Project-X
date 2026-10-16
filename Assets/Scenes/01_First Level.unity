@@ -30426,6 +30426,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb5d645ddf44314486ed26ef614a32d, type: 3}
+--- !u!1001 &1157444941
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7766205313291505023, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_Name
+      value: DoomScrollerPrefab (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 315.9666
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -86.80893
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
 --- !u!1 &1159926583
 GameObject:
   m_ObjectHideFlags: 0
@@ -53252,6 +53309,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7818809705679174233, guid: 6eb5d645ddf44314486ed26ef614a32d, type: 3}
   m_PrefabInstance: {fileID: 1853131050}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1560666984
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7766205313291505023, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_Name
+      value: DoomScrollerPrefab (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 329.2415
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -92.0259
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785391777518775626, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe5f121fa12a02641be9f3dfa4512006, type: 3}
 --- !u!4 &1606369767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6774328854279030292, guid: e96ff3416bb517e44b75eed3d8838473, type: 3}
@@ -53921,3 +54035,5 @@ SceneRoots:
   - {fileID: 242772937}
   - {fileID: 1221751856}
   - {fileID: 2771408}
+  - {fileID: 1560666984}
+  - {fileID: 1157444941}
