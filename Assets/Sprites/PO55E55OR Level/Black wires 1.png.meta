@@ -103,10 +103,10 @@ TextureImporter:
       name: Black wires 1_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 225
-        width: 16
-        height: 54
+        x: 0
+        y: 0
+        width: 14
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

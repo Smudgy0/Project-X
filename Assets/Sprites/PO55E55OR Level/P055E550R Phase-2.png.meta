@@ -52,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -109,12 +109,12 @@ TextureImporter:
       name: P055E550R Phase-2_0
       rect:
         serializedVersion: 2
-        x: 235
-        y: 193
-        width: 30
+        x: 0
+        y: 30
+        width: 29
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -131,12 +131,12 @@ TextureImporter:
       name: P055E550R Phase-2_1
       rect:
         serializedVersion: 2
-        x: 244
-        y: 162
+        x: 8
+        y: 0
         width: 102
-        height: 100
+        height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: P055E550R Phase-2_2
       rect:
         serializedVersion: 2
-        x: 325
-        y: 193
-        width: 30
+        x: 89
+        y: 30
+        width: 29
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,11 +171,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: P055E550R Phase-2_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 118
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdee75f367cef1d47829fd7ac1d5da00
+      internalID: 1437948301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 316e631eb3ab1ea48b2e543e3a365fb0
     internalID: 0
     vertices: []
     indices: 
@@ -188,6 +210,7 @@ TextureImporter:
       P055E550R Phase-2_0: -257352636813836929
       P055E550R Phase-2_1: -1309771293619873841
       P055E550R Phase-2_2: 8044434256939770509
+      P055E550R Phase-2_3: 1437948301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

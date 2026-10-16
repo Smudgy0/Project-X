@@ -103,10 +103,10 @@ TextureImporter:
       name: Extension plugs 2_0
       rect:
         serializedVersion: 2
-        x: 368
-        y: 59
-        width: 175
-        height: 46
+        x: 0
+        y: 0
+        width: 173
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

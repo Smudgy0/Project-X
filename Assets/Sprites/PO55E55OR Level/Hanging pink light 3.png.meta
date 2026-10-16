@@ -103,10 +103,10 @@ TextureImporter:
       name: Hanging pink light 3_0
       rect:
         serializedVersion: 2
-        x: 381
-        y: 210
-        width: 66
-        height: 76
+        x: 0
+        y: 0
+        width: 64
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

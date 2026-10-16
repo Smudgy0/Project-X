@@ -103,10 +103,10 @@ TextureImporter:
       name: Slush cup small_0
       rect:
         serializedVersion: 2
-        x: 512
-        y: 109
-        width: 9
-        height: 17
+        x: 0
+        y: 0
+        width: 7
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
