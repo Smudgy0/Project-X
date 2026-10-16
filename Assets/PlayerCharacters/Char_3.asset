@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4ec098b6afa4e489cf2b313edb7118, type: 3}
   m_Name: Char_3
   m_EditorClassIdentifier: 
-  thisCharacterName: C
+  thisCharacterName: Cat
   thisCharacterMoveSpeed: 10
   thisCharacterJumpSpeed: 6
   thisCharSize: {x: 1, y: 0.7}

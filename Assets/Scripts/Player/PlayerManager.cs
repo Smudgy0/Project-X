@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     // Toggle Variables
     public bool isJumping;
     public bool isDead;
+    public bool Ragdoll;
 
     // Player Sprite
     public SpriteRenderer PlayerSprite;
@@ -43,9 +45,19 @@ public class PlayerManager : MonoBehaviour
     // Managers Access
     public GameUIManager GUIM;
 
+    //Camera
+    public CinemachineConfiner2D Confiner;
+    public Collider2D RespawnCameraContainer;
+    public CinemachineCamera Camera;
+
     private void Awake()
     {
+        Camera = FindAnyObjectByType<CinemachineCamera>();
+        Confiner = FindAnyObjectByType<CinemachineConfiner2D>();
+
         GUIM = FindAnyObjectByType<GameUIManager>();
+
+        Ragdoll = false;
     }
     void Start()
     {
@@ -128,6 +140,7 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Ragdoll) { return; }
         if (isDead == true) { return; }
         if (!isJumping)
         {
@@ -178,6 +191,23 @@ public class PlayerManager : MonoBehaviour
             this.gameObject.transform.position = teleporter.SendPlayerTo.position;
             teleporter.SwitchCameraView(this.gameObject.transform);
         }
+
+        if (collision.tag == "SceneChanger")
+        {
+            collision.gameObject.GetComponent<SceneSender>().SendToScene();
+        }
+
+        if (collision.tag == "Enemy")
+        {
+            Ragdoll = true;
+            rb.AddForce(new Vector2(100, 100));
+            Invoke("RagdollCancel", 1);
+        }
+    }
+
+    public void RagdollCancel()
+    {
+        Ragdoll = false;
     }
 
     private void OnDrawGizmos()
