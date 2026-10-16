@@ -200,7 +200,7 @@ public class PlayerManager : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             Ragdoll = true;
-            rb.AddForce(new Vector2(100, 100));
+            rb.AddForce(new Vector2(0, 100));
             Invoke("RagdollCancel", 1);
         }
     }
