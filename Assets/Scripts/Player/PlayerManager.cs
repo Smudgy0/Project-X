@@ -43,6 +43,8 @@ public class PlayerManager : MonoBehaviour
     // Managers Access
     public GameUIManager GUIM;
 
+    public int currentPoints;
+
     private void Awake()
     {
         GUIM = FindAnyObjectByType<GameUIManager>();
@@ -177,6 +179,12 @@ public class PlayerManager : MonoBehaviour
             Teleporter teleporter = collision.GetComponent<Teleporter>(); 
             this.gameObject.transform.position = teleporter.SendPlayerTo.position;
             teleporter.SwitchCameraView(this.gameObject.transform);
+        }
+
+        if(collision.tag == "LevelEnd")
+        {
+            PlayerPrefs.SetInt("highScore", currentPoints);
+            PlayerPrefs.Save();
         }
     }
 
