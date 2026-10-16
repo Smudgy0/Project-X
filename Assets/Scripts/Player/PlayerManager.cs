@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -42,6 +43,15 @@ public class PlayerManager : MonoBehaviour
 
     // Managers Access
     public GameUIManager GUIM;
+
+    // Camera
+
+    public CinemachineConfiner2D Confiner;
+    public Collider2D RespawnCameraContainer;
+    public CinemachineCamera Camera;
+
+
+    public int currentPoints;
 
     private void Awake()
     {
@@ -177,6 +187,12 @@ public class PlayerManager : MonoBehaviour
             Teleporter teleporter = collision.GetComponent<Teleporter>(); 
             this.gameObject.transform.position = teleporter.SendPlayerTo.position;
             teleporter.SwitchCameraView(this.gameObject.transform);
+        }
+
+        if(collision.tag == "LevelEnd")
+        {
+            PlayerPrefs.SetInt("highScore", currentPoints);
+            PlayerPrefs.Save();
         }
     }
 

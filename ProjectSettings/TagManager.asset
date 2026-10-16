@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Water
   - Death
+  - LevelEnd
   layers:
   - Default
   - TransparentFX
