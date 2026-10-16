@@ -51,6 +51,7 @@ public class GameUIManager : MonoBehaviour
         PHS.PLives -= 1;
         PHS.playerhealth = PHS.maxPlayerhealth;
         PHS.transform.position = PHS.RespawnPoint.position;
+        PM.Confiner.BoundingShape2D = PM.RespawnCameraContainer;
     }
 
     public void Lose()
