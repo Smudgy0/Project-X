@@ -44,5 +44,6 @@ public class DialogueController : MonoBehaviour
         GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceContainer);
         choiceButton.GetComponent<TMP_Text>().text = choiceText;
         choiceButton.GetComponent<Button>().onClick.AddListener(onClick);
+        return choiceButton;
     }
 }
