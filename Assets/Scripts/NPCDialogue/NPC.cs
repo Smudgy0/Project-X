@@ -62,7 +62,7 @@ public class NPC : MonoBehaviour, IInteractable
             EndDialogue();
             return;
         }
-        foreach(DialogueChoice dialogueChoice in dialogueData.choices)
+        foreach(NPCDialogue.DialogueChoice dialogueChoice in dialogueData.choices)
         {
             if(dialogueChoice.dialogueIndex == dialogueIndex)
             {
@@ -101,11 +101,11 @@ public class NPC : MonoBehaviour, IInteractable
         }
     }
 
-    void DisplayChoices(DialogueChoice choice)
+    void DisplayChoices(NPCDialogue.DialogueChoice choice)
     {
         for(int i = 0; i < choice.choices.Length; i++)
         {
-            int nextIndex = choice.nextDialogueIndexes[i];
+            int nextIndex = choice.nextDialogueIndex[i];
             dialogueUI.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex));
         }
     }

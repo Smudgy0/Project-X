@@ -39,7 +39,7 @@ public class DialogueController : MonoBehaviour
         foreach (Transform child in choiceContainer) Destroy(child.gameObject);
     }
 
-    public void CreateChoiceButton(string choiceText, UnityEngine.Events.UnityAction onClick)
+    public GameObject CreateChoiceButton(string choiceText, UnityEngine.Events.UnityAction onClick)
     {
         GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceContainer);
         choiceButton.GetComponent<TMP_Text>().text = choiceText;
