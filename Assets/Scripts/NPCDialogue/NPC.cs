@@ -1,12 +1,11 @@
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
     public NPCDialogue dialogueData;
     private DialogueController dialogueUI;
+
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
 
@@ -105,7 +104,7 @@ public class NPC : MonoBehaviour, IInteractable
     {
         for(int i = 0; i < choice.choices.Length; i++)
         {
-            int nextIndex = choice.nextDialogueIndex[i];
+            int nextIndex = choice.nextDialogueIndexes[i];
             dialogueUI.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex));
         }
     }

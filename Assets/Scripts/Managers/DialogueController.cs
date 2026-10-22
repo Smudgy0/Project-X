@@ -42,7 +42,7 @@ public class DialogueController : MonoBehaviour
     public GameObject CreateChoiceButton(string choiceText, UnityEngine.Events.UnityAction onClick)
     {
         GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceContainer);
-        choiceButton.GetComponent<TMP_Text>().text = choiceText;
+        choiceButton.GetComponentInChildren<TMP_Text>().text = choiceText;
         choiceButton.GetComponent<Button>().onClick.AddListener(onClick);
         return choiceButton;
     }

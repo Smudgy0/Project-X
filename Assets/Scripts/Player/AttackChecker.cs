@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,11 @@ public class AttackChecker : MonoBehaviour
     public LayerMask acceptedTargets;
     public Transform shootingPoint;
     public GameObject bulletPrefab;
+    public int currentAmmo;
+    public int maxAmmo;
+    public int minAmmo;
+    public float reloadTime;
+    private bool reloading;
 
     public PlayerSpirteAnimator PSA;
 
@@ -20,7 +26,11 @@ public class AttackChecker : MonoBehaviour
     {
         playerDamage = 1;
         PM = FindAnyObjectByType<PlayerManager>();
+<<<<<<< Updated upstream
         PSA = FindAnyObjectByType<PlayerSpirteAnimator>();
+=======
+        currentAmmo = maxAmmo;
+>>>>>>> Stashed changes
     }
 
     public void Update()
@@ -50,16 +60,38 @@ public class AttackChecker : MonoBehaviour
                             enemyHealth.TakeDamage(playerDamage);
                         }
                     }
+<<<<<<< Updated upstream
                     PSA.RunMeleeAnim(); // Melee Animation trigger
 
+=======
+                    // theo one line
+>>>>>>> Stashed changes
                     break;
                 case CharacterInfo.AttackType.Ranged:
-                    GameObject bulletClone = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
-                    Destroy(bulletClone, 1f);
+                    if (currentAmmo > minAmmo)
+                    {
+                        GameObject bulletClone = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
+                        Destroy(bulletClone, 1f);
+                        currentAmmo--;
+                        if (currentAmmo <= minAmmo)
+                        {
+                            if (!reloading)
+                            {
+                                StartCoroutine("Reload");
+                            }
+                        }
+                    }
                     break;
             }
 
         }
     }
 
+    IEnumerator Reload()
+    {
+        reloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = maxAmmo;
+        reloading = false;
+    }
 }
