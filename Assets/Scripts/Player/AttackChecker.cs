@@ -26,11 +26,8 @@ public class AttackChecker : MonoBehaviour
     {
         playerDamage = 1;
         PM = FindAnyObjectByType<PlayerManager>();
-<<<<<<< Updated upstream
         PSA = FindAnyObjectByType<PlayerSpirteAnimator>();
-=======
         currentAmmo = maxAmmo;
->>>>>>> Stashed changes
     }
 
     public void Update()
@@ -60,12 +57,9 @@ public class AttackChecker : MonoBehaviour
                             enemyHealth.TakeDamage(playerDamage);
                         }
                     }
-<<<<<<< Updated upstream
                     PSA.RunMeleeAnim(); // Melee Animation trigger
 
-=======
                     // theo one line
->>>>>>> Stashed changes
                     break;
                 case CharacterInfo.AttackType.Ranged:
                     if (currentAmmo > minAmmo)

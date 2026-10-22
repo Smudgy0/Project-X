@@ -91,7 +91,6 @@ public class PlayerManager : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext value)
     {
-        if(value.)
         if (isDead == true) { return;}
         MovementDirection = value.ReadValue<Vector2>();
         if (MovementDirection != Vector2.zero)
