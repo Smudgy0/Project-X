@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
 
     // Player Sprite
     public SpriteRenderer PlayerSprite;
+    public PlayerSpirteAnimator PSA;
 
     // player movement direction
     [SerializeField] private Vector2 MovementDirection;
@@ -56,6 +57,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         GUIM = FindAnyObjectByType<GameUIManager>();
+        PSA = GetComponentInChildren <PlayerSpirteAnimator>();
     }
     void Start()
     {
@@ -89,12 +91,19 @@ public class PlayerManager : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext value)
     {
+        if(value.)
         if (isDead == true) { return;}
         MovementDirection = value.ReadValue<Vector2>();
         if (MovementDirection != Vector2.zero)
         {
             facingDirection = MovementDirection;
         }
+    }
+
+    public void ResetMovementValues()
+    {
+        rb.linearVelocityX = 0;
+        MovementDirection = new Vector2(0,0);
     }
 
     public void OnJump(InputAction.CallbackContext value)
@@ -128,6 +137,9 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        PSA.MovingAnim(new Vector2(Mathf.Abs(rb.linearVelocityX), rb.linearVelocityY));
+        PSA.JumpingAnim(isJumping);
+
         if (isDead == true) { return; }
         isGrounded = Physics2D.OverlapCircle(groundCheckObject.position, groundCheckRadius, groundMask);
 
@@ -160,24 +172,29 @@ public class PlayerManager : MonoBehaviour
             rb.linearVelocityX = MovementDirection.x * PlayerMoveSpeed;
             if (this.transform.position.y < myHeight + playerJumpOffset || rb.linearVelocityY == 0)
             {
-                if(isGrounded == false)
-                {
-                    return;
-                }
-                /*if(when getting to the original landing height, the collider isn't hit on the ground)
-                 * use physics to make the player start falling until their collider hits the ground again
-                */
-                // Make player layer and background be able to interact
-                Physics2D.IgnoreLayerCollision(6, 7, false);
-                print($"{Physics2D.GetIgnoreLayerCollision(6, 7)} 6 & 7 Should be able to interact");
-
-                rb.linearVelocityY = 0;
-                rb.gravityScale = 0;
-                isJumping = false;
-                playerJumpOffset = 0;
-                transform.position = new Vector2(transform.position.x, myHeight);
+                LandOnGround();
             }
         }
+    }
+
+    public void LandOnGround()
+    {
+        if (isGrounded == false)
+        {
+            return;
+        }
+        /*if(when getting to the original landing height, the collider isn't hit on the ground)
+         * use physics to make the player start falling until their collider hits the ground again
+        */
+        // Make player layer and background be able to interact
+        Physics2D.IgnoreLayerCollision(6, 7, false);
+        print($"{Physics2D.GetIgnoreLayerCollision(6, 7)} 6 & 7 Should be able to interact");
+
+        rb.linearVelocityY = 0;
+        rb.gravityScale = 0;
+        isJumping = false;
+        playerJumpOffset = 0;
+        transform.position = new Vector2(transform.position.x, myHeight);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -187,6 +204,9 @@ public class PlayerManager : MonoBehaviour
             Teleporter teleporter = collision.GetComponent<Teleporter>(); 
             this.gameObject.transform.position = teleporter.SendPlayerTo.position;
             teleporter.SwitchCameraView(this.gameObject.transform);
+
+            myHeight = this.gameObject.transform.position.y;
+            LandOnGround();
         }
 
         if(collision.tag == "LevelEnd")

@@ -14,10 +14,13 @@ public class AttackChecker : MonoBehaviour
     public Transform shootingPoint;
     public GameObject bulletPrefab;
 
+    public PlayerSpirteAnimator PSA;
+
     private void Awake()
     {
         playerDamage = 1;
         PM = FindAnyObjectByType<PlayerManager>();
+        PSA = FindAnyObjectByType<PlayerSpirteAnimator>();
     }
 
     public void Update()
@@ -47,6 +50,7 @@ public class AttackChecker : MonoBehaviour
                             enemyHealth.TakeDamage(playerDamage);
                         }
                     }
+                    PSA.RunMeleeAnim(); // Melee Animation trigger
 
                     break;
                 case CharacterInfo.AttackType.Ranged:
@@ -54,6 +58,7 @@ public class AttackChecker : MonoBehaviour
                     Destroy(bulletClone, 1f);
                     break;
             }
+
         }
     }
 

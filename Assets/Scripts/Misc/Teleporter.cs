@@ -10,10 +10,13 @@ public class Teleporter : MonoBehaviour
     public Collider2D CameraContainer;
     public CinemachineCamera Camera;
 
+    public PlayerManager PM;
+
     private void Awake()
     {
         Camera = FindAnyObjectByType<CinemachineCamera>();
         Confiner = FindAnyObjectByType<CinemachineConfiner2D>();
+        PM = FindAnyObjectByType<PlayerManager>();
     }
 
     public void SwitchCameraView(Transform PlayerPoint)

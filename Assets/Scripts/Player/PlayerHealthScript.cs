@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerHealthScript : MonoBehaviour
@@ -15,6 +16,8 @@ public class PlayerHealthScript : MonoBehaviour
 
     public Transform RespawnPoint;
 
+    public PlayerSpirteAnimator PSA;
+
     private void Awake()
     {
         IsDead = false;
@@ -24,6 +27,7 @@ public class PlayerHealthScript : MonoBehaviour
         playerhealth = maxPlayerhealth;
         GUIM = FindAnyObjectByType<GameUIManager>();
         PM = FindAnyObjectByType<PlayerManager>();
+        PSA = GetComponentInChildren<PlayerSpirteAnimator>();
     }
 
     private void FixedUpdate()
@@ -56,6 +60,8 @@ public class PlayerHealthScript : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        PSA.TakeDamageAnim();
+        Camera.main.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
         Debug.Log("TookDamage");
         playerhealth -= damage;
     }
