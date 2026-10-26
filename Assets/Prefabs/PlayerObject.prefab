@@ -326,6 +326,7 @@ MonoBehaviour:
   isJumping: 0
   isDead: 0
   PlayerSprite: {fileID: 6766416584268732628}
+  PSA: {fileID: 0}
   MovementDirection: {x: 0, y: 0}
   facingDirection: {x: 0, y: 0}
   rb: {fileID: 0}
@@ -343,6 +344,9 @@ MonoBehaviour:
     m_Bits: 8
   isGrounded: {fileID: 0}
   GUIM: {fileID: 0}
+  Confiner: {fileID: 0}
+  RespawnCameraContainer: {fileID: 0}
+  Camera: {fileID: 0}
   currentPoints: 0
 --- !u!114 &7986306265669205844
 MonoBehaviour:
@@ -377,6 +381,7 @@ MonoBehaviour:
   PLives: 0
   IsDead: 0
   RespawnPoint: {fileID: 0}
+  PSA: {fileID: 0}
 --- !u!50 &8390059304746938746
 Rigidbody2D:
   serializedVersion: 5
@@ -670,6 +675,11 @@ MonoBehaviour:
     m_Bits: 256
   shootingPoint: {fileID: 13335999372904821}
   bulletPrefab: {fileID: 5100879715561265885, guid: 2c7a7ab15772bae4c94c450b918d9b3e, type: 3}
+  currentAmmo: 0
+  maxAmmo: 0
+  minAmmo: 0
+  reloadTime: 0
+  PSA: {fileID: 0}
 --- !u!1 &4950695932218477534
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +809,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3132962566164118013}
   - component: {fileID: 6766416584268732628}
+  - component: {fileID: 8848764826052017214}
+  - component: {fileID: 510755208129947987}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -876,6 +888,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8848764826052017214
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740712827267575824}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53e9983ec23cf0a479772a0b4eaaf657, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &510755208129947987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740712827267575824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae42c3bda377a54c8a5578d8f1cea8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyAnimator: {fileID: 0}
+  MySprite: {fileID: 0}
 --- !u!1 &8396188747487596370
 GameObject:
   m_ObjectHideFlags: 0
