@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
     public EnemyStats EnemyType;
     public int MyHealth;
 
+    public Animator MyAnim;
+
     private void Awake()
     {
         MyHealth = EnemyType.health;
@@ -25,5 +27,7 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("EnemyTakesDamage");
         MyHealth -= damage;
+
+        MyAnim.SetTrigger("HitByPlayer");
     }
 }
