@@ -12,6 +12,8 @@ TagManager:
   - Water
   - Death
   - LevelEnd
+  - Destructable
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -27,7 +29,7 @@ TagManager:
   - Blocker
   - PlayerInteractor
   - Interactable
-  - 
+  - Destructable
   - 
   - 
   - 

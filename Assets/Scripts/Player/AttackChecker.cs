@@ -56,10 +56,15 @@ public class AttackChecker : MonoBehaviour
                         {
                             enemyHealth.TakeDamage(playerDamage);
                         }
+                        if (hit.TryGetComponent(out Destructables Object))
+                        {
+                            Object.Hit();
+                        }
+
                     }
                     PSA.RunMeleeAnim(); // Melee Animation trigger
 
-                    // theo one line
+                    
                     break;
                 case CharacterInfo.AttackType.Ranged:
                     if (currentAmmo > minAmmo)

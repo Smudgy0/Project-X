@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     public Rigidbody2D rb;
 
     // Mask
-    public GameObject backGroundcollider;
+    public GameObject backGroundcolliderIsGround;
 
     // player character values
     public CharacterInfo ActiveCharater;
@@ -41,6 +41,10 @@ public class PlayerManager : MonoBehaviour
     public Transform groundCheckObject;
     public LayerMask groundMask;
     public Collider2D isGrounded;
+
+    //BehindChecker
+    public bool backGroundOnGround;
+    public Transform behindCheckObject;
 
     // Managers Access
     public GameUIManager GUIM;
@@ -150,6 +154,7 @@ public class PlayerManager : MonoBehaviour
     private void FixedUpdate()
     {
         if (isDead == true) { return; }
+
         if (!isJumping)
         {
 
@@ -169,16 +174,23 @@ public class PlayerManager : MonoBehaviour
         if (isJumping)
         {
             rb.linearVelocityX = MovementDirection.x * PlayerMoveSpeed;
-            if (this.transform.position.y < myHeight + playerJumpOffset || rb.linearVelocityY == 0)
+            if (this.transform.position.y < myHeight + playerJumpOffset|| rb.linearVelocityY == 0)
             {
                 LandOnGround();
+                return;
             }
+        }
+
+        if (rb.linearVelocityY == 0 && !isGrounded)
+        {
+            transform.position = new Vector2(transform.position.x, myHeight - 2);
         }
     }
 
     public void LandOnGround()
     {
-        if (isGrounded == false)
+
+        if (isGrounded == false || isGrounded == null)
         {
             return;
         }
