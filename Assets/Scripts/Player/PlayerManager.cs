@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     // player movement values
     public float PlayerMoveSpeed;
+    public float playerRunSpeed;
     public float PlayerJumpHeight;
     public float playerJumpOffset;
 

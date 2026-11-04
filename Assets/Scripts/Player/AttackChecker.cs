@@ -7,6 +7,7 @@ public class AttackChecker : MonoBehaviour
     
 
     public int playerDamage;
+    public int playerIncreasedDamage;
 
     public PlayerManager PM;
 
