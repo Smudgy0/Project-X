@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7236652549562431804}
   - component: {fileID: 5867200896573198067}
   - component: {fileID: 4037130580823139625}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: InteractionDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +83,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 1687592871244145166}
+  interactionLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1 &1283838284409479248
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +269,7 @@ Transform:
   - {fileID: 3819868433522845846}
   - {fileID: 6981827516901656266}
   - {fileID: 1658255337197092485}
+  - {fileID: 7939157674751963976}
   - {fileID: 7236652549562431804}
   m_Father: {fileID: 6774328854279030292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -330,7 +334,7 @@ MonoBehaviour:
   MovementDirection: {x: 0, y: 0}
   facingDirection: {x: 0, y: 0}
   rb: {fileID: 0}
-  backGroundcollider: {fileID: 0}
+  backGroundcolliderIsGround: {fileID: 8886796402081936773}
   ActiveCharater: {fileID: 11400000, guid: 1e9cf9b28b77bf24ba71feccf63b01fb, type: 2}
   PlayableCharacters:
   - {fileID: 11400000, guid: 1e9cf9b28b77bf24ba71feccf63b01fb, type: 2}
@@ -343,6 +347,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isGrounded: {fileID: 0}
+  backGroundOnGround: 0
+  behindCheckObject: {fileID: 0}
   GUIM: {fileID: 0}
   Confiner: {fileID: 0}
   RespawnCameraContainer: {fileID: 0}
@@ -672,7 +678,7 @@ MonoBehaviour:
   meleePoint: {fileID: 2711105970841658971}
   acceptedTargets:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 16640
   shootingPoint: {fileID: 13335999372904821}
   bulletPrefab: {fileID: 5100879715561265885, guid: 2c7a7ab15772bae4c94c450b918d9b3e, type: 3}
   currentAmmo: 0
@@ -1032,4 +1038,35 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6981827516901656266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8886796402081936773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7939157674751963976}
+  m_Layer: 6
+  m_Name: BodyChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7939157674751963976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886796402081936773}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.485, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3683441187024457197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
